@@ -5,7 +5,6 @@ require("dotenv").config();
 const app = express();
 app.use(express.json());
 
-// MongoDB connection
 const client = new MongoClient(process.env.MONGO_URI);
 let collection;
 
@@ -33,7 +32,7 @@ app.post("/ingestTelemetry", async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
 app.listen(PORT, async () => {
   console.log(`Server running on port ${PORT}`);
   await connectDB();
